@@ -1,7 +1,8 @@
 import React from "react";
 import Search from "./Search";
 import axios from "axios";
-import ImageList from './ImageList'
+import ImageList from "./ImageList";
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 class App extends React.Component {
   state = {
@@ -9,27 +10,23 @@ class App extends React.Component {
   };
 
   onSearchSubmit = (term) => {
-    console.log(term);
     axios
-      .get(
-        "https://api.unsplash.com/search/photos/?client_id=Uq9ptKE0KiHhkc82EOAcM4w0scD0KZeiyPYxBXpLEcc",
-        {
-          params: {
-            query: term,
-          },
-        })
+      .get(`https://api.unsplash.com/search/photos/?client_id=${API_KEY}`, {
+        params: {
+          query: term,
+        },
+      })
       .then((response) => {
         this.setState({
           images: response.data.results,
         });
       })
       .catch((error) => {
-        console.log(error);
+        alert(console.log(error));
       });
   };
 
   render() {
-   
     return (
       <div>
         <Search onSearchSubmit={this.onSearchSubmit} />
