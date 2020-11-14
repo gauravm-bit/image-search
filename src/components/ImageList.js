@@ -11,6 +11,7 @@ class ImageList extends React.Component {
             {this.props.images.map((image) => (
               <Image
                 key={image.id}
+                id={image.id}
                 image={image.urls.small}
                 alt={image.alt_description}
               />

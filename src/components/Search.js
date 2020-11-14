@@ -1,5 +1,6 @@
 import React from "react";
-import { FormLabel, Input, FormHelperText } from "@chakra-ui/core";
+import { FormLabel, Input, FormHelperText, Box, Button } from "@chakra-ui/core";
+import "./Search.css";
 
 class Search extends React.Component {
   state = {
@@ -22,15 +23,27 @@ class Search extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="search-input">
         <form onSubmit={this.handleSubmit}>
-          <FormLabel> Image Search </FormLabel>
-          <Input
-            value={this.state.term}
-            onChange={this.handleChange}
-            type="text"
-          />
-          <FormHelperText>Using Unsplash API</FormHelperText>
+          <Box m={[2, 3]}>
+            <FormLabel> Image Search </FormLabel>
+            <Input
+              maxW="sm"
+              value={this.state.term}
+              onChange={this.handleChange}
+              type="text"
+            />
+            <Button
+              m={2}
+              colorScheme="teal"
+              variant="solid"
+              onClick={this.handleSubmit}
+            >
+              Enter
+            </Button>
+
+            <FormHelperText>Using Unsplash API</FormHelperText>
+          </Box>
         </form>
       </div>
     );
