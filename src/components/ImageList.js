@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "./Image";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-
+ 
 class ImageList extends React.Component {
   render() {
     return (

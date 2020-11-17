@@ -2,6 +2,8 @@ import React from "react";
 import Search from "./Search";
 import axios from "axios";
 import ImageList from "./ImageList";
+import { extendTheme } from "@chakra-ui/react"
+
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 class App extends React.Component {
@@ -14,9 +16,11 @@ class App extends React.Component {
       .get(`https://api.unsplash.com/search/photos/?client_id=${API_KEY}`, {
         params: {
           query: term,
+           
         },
       })
       .then((response) => {
+        console.log(response);
         this.setState({
           images: response.data.results,
         });

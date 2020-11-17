@@ -41,7 +41,6 @@ class Search extends React.Component {
             >
               Enter
             </Button>
-
             <FormHelperText>Using Unsplash API</FormHelperText>
           </Box>
         </form>
